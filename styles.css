@@ -152,6 +152,15 @@ model-viewer {
   to   { transform: translateX(-100px); }
 }
 
+@keyframes fadeSkybox {
+  from {
+    skybox-image: current;
+  }
+  to {
+    skybox-image: 'eresosPanoramaNEWNEW.png';
+  }
+}
+
 model-viewer > #ar-prompt {
   position: absolute;
   left: 50%;
