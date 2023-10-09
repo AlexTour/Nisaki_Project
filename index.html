@@ -25,14 +25,14 @@
     </model-viewer>
     <audio id="audioPlayer" src="testtest.mp3" preload="auto"></audio>
     <script type="module">
-      const modelViewer2 = document.querySelector("#modelviewer");
+      const modelViewer2 = document.querySelector("#model-viewer"); // Corrected ID
       const audioPlayer = document.querySelector('#audioPlayer');
       const annotationClicked = (annotation) => {
         audioPlayer.play();
         modelViewer2.setAttribute('skybox-image', 'eresosPanoramaNEWNEW.png');
       }
 
-        modelViewer2.querySelectorAll('button').forEach((hotspot) => {
+        modelViewer2.querySelectorAll('button.Hotspot').forEach((hotspot) => { // Use 'button.Hotspot' to select the annotation buttons
         hotspot.addEventListener('click', () => annotationClicked(hotspot));
       });
     </script>
