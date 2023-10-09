@@ -32,9 +32,9 @@
         modelViewer2.setAttribute('skybox-image', 'eresosPanoramaNEWNEW.png');
       }
 
-        modelViewer2.querySelectorAll('button.Hotspot').forEach((hotspot) => { // Use 'button.Hotspot' to select the annotation buttons
-        hotspot.addEventListener('click', () => annotationClicked(hotspot));
-      });
+        modelViewer2.querySelectorAll('button').forEach((hotspot) => {
+            hotspot.addEventListener('click', () => annotationClicked(hotspot));
+        });
     </script>
     <script src="script.js"></script>
     <!-- Loads <model-viewer> for browsers: -->
