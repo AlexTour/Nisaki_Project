@@ -56,7 +56,9 @@
       </div>
       <effect-composer render-mode="quality">
         <glitch-effect blend-mode="default" id="glitch-effect"></glitch-effect>
-        <bloom-effect blend-mode="default"></bloom-effect>
+        <ssao-effect blend-mode="default"></ssao-effect>
+        <smaa-effect blend-mode="default"></smaa-effect>
+        <color-grade-effect blend-mode="default"></color-grade-effect>
       </effect-composer>
     </model-viewer>
 
@@ -81,7 +83,7 @@
             audioPlayerStaticNoise.play();
             
             const effectsViewer = document.querySelector("model-viewer#effect-composer");
-            const glitchEffect = effectsViewer.querySelector("#glitch-effect"); 
+            //const glitchEffect = effectsViewer.querySelector("#glitch-effect"); 
             
             // To turn off the Glitch Effect, set its blendMode to 'skip'
             glitchEffect.blendMode = 'skip';
