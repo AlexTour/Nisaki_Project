@@ -25,6 +25,18 @@
             color: #fff;
             z-index: 2;
         }
+
+        #playButton {
+            position: absolute;
+            top: 50%; /* Adjust the vertical position */
+            left: 50%; /* Adjust the horizontal position */
+            transform: translate(-50%, -50%);
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            display: none; /* Initially hidden */
+        }
     </style>
   </head>
   <body>
@@ -47,6 +59,9 @@
         <p>Click "Understand" to start the new audio release from AgainstMe -  There is Someone on the Line.</p>
         <button id="understandButton">Understand</button>
     </div>
+
+    <!-- Play button -->
+    <button id="playButton">Play</button>
     
     <audio id="audioPlayer" src="B2 - AgainstMe -  There is Someone on the Line.mp3" preload="auto"></audio>
     <audio id="audioPlayerStaticNoise" src="tv-static-05.mp3" preload="auto"></audio>  
@@ -55,6 +70,7 @@
         // Hide the intro when the "Understand" button is clicked
         understandButton.addEventListener('click', () => {
             intro.style.display = 'none';
+            playButton.style.display = 'block';
             audioPlayerStaticNoise.play();
             
             const effectsViewer = document.querySelector("model-viewer#effect-composer");
@@ -64,7 +80,8 @@
             glitchEffect.blendMode = 'skip';
         });
       
-        hotspotButton.addEventListener('click', () => {
+        playButton.addEventListener('click', () => {
+          playButton.style.display = 'none';
           audioPlayerStaticNoise.pause();
           audioPlayer.play();
           modelViewer.setAttribute('auto-rotate', '');
