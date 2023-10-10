@@ -56,10 +56,11 @@
         understandButton.addEventListener('click', () => {
             intro.style.display = 'none';
             audioPlayerStaticNoise.play();
+            
             const effectsViewer = document.querySelector("model-viewer#effect-composer");
-            const glitchEffect = effectsViewer.querySelector("glitch-effect"); // Select the Bloom Effect
-
-            // To turn off the Bloom Effect, set its blendMode to 'skip'
+            const glitchEffect = effectsViewer.querySelector("#glitch-effect"); 
+            
+            // To turn off the Glitch Effect, set its blendMode to 'skip'
             glitchEffect.blendMode = 'skip';
         });
       
