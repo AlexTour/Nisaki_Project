@@ -50,12 +50,17 @@
     
     <audio id="audioPlayer" src="B2 - AgainstMe -  There is Someone on the Line.mp3" preload="auto"></audio>
     <audio id="audioPlayerStaticNoise" src="tv-static-05.mp3" preload="auto"></audio>  
+   
     <script type="module">
-
-      // Hide the intro when the "Understand" button is clicked
+        // Hide the intro when the "Understand" button is clicked
         understandButton.addEventListener('click', () => {
             intro.style.display = 'none';
             audioPlayerStaticNoise.play();
+            const effectsViewer = document.querySelector("model-viewer#effect-composer");
+            const glitchEffect = effectsViewer.querySelector("glitch-effect"); // Select the Bloom Effect
+
+            // To turn off the Bloom Effect, set its blendMode to 'skip'
+            glitchEffect.blendMode = 'skip';
         });
       
         hotspotButton.addEventListener('click', () => {
