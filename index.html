@@ -63,7 +63,7 @@
   </head>
   <body>
     <!-- <model-viewer> HTML element -->
-    <model-viewer id="modelViewer" src="cr-tv-v1.glb" camera-controls poster="poster.webp" shadow-intensity="0" environment-image="eresosPanoramaNEWNEW.png" exposure="1.5" camera-orbit="-15.14deg 86.2deg 0.3032m" field-of-view="30deg" touch-action="none" interaction-prompt="none">
+    <model-viewer id="modelViewer" src="cr-tv-v1.glb" camera-controls poster="poster.webp" shadow-intensity="0" environment-image="eresosPanoramaNEWNEW.png" exposure="1.5" camera-orbit="-15.14deg 86.2deg 0.3032m" field-of-view="30deg" touch-action="none" interaction-prompt="none" interpolation-decay="200">
       <div class="progress-bar hide" slot="progress-bar">
           <div class="update-bar"></div>
       </div>
@@ -110,6 +110,9 @@
           
           // Start the experience when playButton is Clicked
           playButton.addEventListener('click', () => {
+
+            modelViewer.cameraOrbit = '-15.14deg 86.2deg 0.3032m'
+                     
             playButton.style.display = 'none';
             
             selectiveBloomEffect.addEventListener('updated-selection', () => {
