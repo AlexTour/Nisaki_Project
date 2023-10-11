@@ -109,7 +109,7 @@
         
           // Get the material with index 2
           const material = modelViewer.model.materials[2];
-          const texture = await modelViewer.createTexture('USMRV001-Covernew.jpg');
+          const texture = modelViewer.createTexture('USMRV001-Covernew.jpg');
 
           // Set the texture on the material
           material2.pbrMetallicRoughness["baseColorTexture"].setTexture(texture2);
@@ -121,6 +121,7 @@
           audioPlayerStaticNoise.pause();
           audioPlayer.play();
           modelViewer.setAttribute('auto-rotate', '');
+          
           setTimeout(() => {
               modelViewer.setAttribute('skybox-image', 'eresosPanoramaNEWNEW.png');
           }, 1000); // Delay for 1 second (adjust as needed)
