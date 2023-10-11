@@ -102,17 +102,20 @@
 
         // Function to gradually increase audio volume
         function fadeInAudio(audioElement, duration) {
-            const volumeIncrement = audioElement.volume / (duration / 1000);
-            const interval = 100; // Adjust interval to control smoothness
-            
-            const fadeInInterval = setInterval(() => {
-                audioElement.volume += volumeIncrement;
-                if (audioElement.volume >= 1) {
-                    clearInterval(fadeInInterval);
-                }
-            }, interval);
-        }
+          const targetVolume = 1;
+          const initialVolume = 0.4;
+          const volumeIncrement = (targetVolume - initialVolume) / (duration / 1000);
+          audioElement.volume = initialVolume;
 
+          const fadeInInterval = setInterval(() => {
+            audioElement.volume += volumeIncrement;
+            if (audioElement.volume >= targetVolume) {
+                audioElement.volume = targetVolume;
+                clearInterval(fadeInInterval);
+            }
+          }, 100);
+        }
+      
         // Wait for the model to finish loading
         modelViewer.addEventListener('load', async () => {
           playButton.style.display = 'block'; 
