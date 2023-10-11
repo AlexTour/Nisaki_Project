@@ -112,10 +112,10 @@
           const texture = modelViewer.createTexture('USMRV001-Covernew.jpg');
 
           // Set the texture on the material
-          material2.pbrMetallicRoughness["baseColorTexture"].setTexture(texture2);
+          material.pbrMetallicRoughness["baseColorTexture"].setTexture(texture2);
 
           // Update the material to reflect the changes
-          material2.needsUpdate = true;
+          material.needsUpdate = true;
 
           
           audioPlayerStaticNoise.pause();
