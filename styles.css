@@ -16,7 +16,8 @@ body {
 model-viewer {
   width: 100%;
   height: 100%;
-  background-color: #ffffff;
+  /*background-color: #ffffff;*/
+  background: #414141;
 }
 
 .Hotspot {
