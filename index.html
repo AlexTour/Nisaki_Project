@@ -90,8 +90,7 @@
     <script type="module">
         // Hide the intro when the "Understand" button is clicked
         understandButton.addEventListener('click', () => {
-            intro.style.display = 'none';
-            playButton.style.display = 'block';
+            intro.style.display = 'none';            
             audioPlayerStaticNoise.play();
             
             const effectsViewer = document.querySelector("model-viewer#effect-composer");
@@ -99,6 +98,11 @@
             
             // To turn off the Glitch Effect, set its blendMode to 'skip'
             //glitchEffect.blendMode = 'skip';
+        });
+
+      // Wait for the model to finish loading
+        modelViewer.addEventListener('load', async () => {
+          playButton.style.display = 'block';            
         });
       
         playButton.addEventListener('click', () => {
