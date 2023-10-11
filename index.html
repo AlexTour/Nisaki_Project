@@ -107,11 +107,13 @@
           const volumeIncrement = (targetVolume - initialVolume) / (duration / 1000);
           audioElement.volume = initialVolume;
 
-          const fadeInInterval = setInterval(() => {
-            audioElement.volume += volumeIncrement;
-            if (audioElement.volume >= targetVolume) {
+          const fadeInInterval = setInterval(() => {        
+            if (audioElement.volume + volumeIncrement >= targetVolume) {
                 audioElement.volume = targetVolume;
                 clearInterval(fadeInInterval);
+            }
+            else }              
+              audioElement.volume += volumeIncrement;
             }
           }, 100);
         }
