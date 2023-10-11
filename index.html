@@ -100,7 +100,20 @@
             //glitchEffect.blendMode = 'skip';
         });
 
-      // Wait for the model to finish loading
+        // Function to gradually increase audio volume
+        function fadeInAudio(audioElement, duration) {
+            const volumeIncrement = audioElement.volume / (duration / 1000);
+            const interval = 100; // Adjust interval to control smoothness
+            
+            const fadeInInterval = setInterval(() => {
+                audioElement.volume += volumeIncrement;
+                if (audioElement.volume >= 1) {
+                    clearInterval(fadeInInterval);
+                }
+            }, interval);
+        }
+
+        // Wait for the model to finish loading
         modelViewer.addEventListener('load', async () => {
           playButton.style.display = 'block'; 
 
@@ -111,7 +124,8 @@
           // Start the experience when playButton is Clicked
           playButton.addEventListener('click', () => {
 
-            modelViewer.cameraOrbit = '-15.14deg 86.2deg 0.3032m'
+            modelViewer.cameraOrbit = '0deg 75deg 0.3032m';
+            modelViewer.cameraTarget = '0m 0.1m 0m';            
                      
             playButton.style.display = 'none';
             
@@ -132,9 +146,14 @@
 
             // Update the material to reflect the changes
             material.needsUpdate = true;
-          
-            audioPlayerStaticNoise.pause();
-            audioPlayer.play();
+
+            // Turn off static noise and play the song
+            setTimeout(() => {
+                audioPlayerStaticNoise.pause();
+            }, 500); // Delay for 1 second (adjust as needed)
+            
+            //audioPlayer.play();
+            fadeInAudio(audioPlayer, 6000); // Increase volume over 6 seconds
             modelViewer.setAttribute('auto-rotate', '');
           
             setTimeout(() => {
