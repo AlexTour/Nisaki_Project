@@ -97,7 +97,7 @@
             //const glitchEffect = effectsViewer.querySelector("#glitch-effect"); 
             
             // To turn off the Glitch Effect, set its blendMode to 'skip'
-            glitchEffect.blendMode = 'skip';
+            //glitchEffect.blendMode = 'skip';
         });
       
         playButton.addEventListener('click', () => {
@@ -108,6 +108,22 @@
           setTimeout(() => {
               modelViewer.setAttribute('skybox-image', 'eresosPanoramaNEWNEW.png');
           }, 1000); // Delay for 1 second (adjust as needed)
+
+          setTimeout(() => {
+             pixelateEffect.blendMode = 'default';
+          }, 3000); // Delay for 1 second (adjust as needed)
+
+          setTimeout(() => {
+             pixelateEffect.blendMode = 'skip';
+          }, 6000); // Delay for 1 second (adjust as needed)
+
+          setTimeout(() => {
+             glitchEffect.blendMode = 'default';
+          }, 10000); // Delay for 1 second (adjust as needed)
+
+          setTimeout(() => {
+             glitchEffect.blendMode = 'skip';
+          }, 20000); // Delay for 1 second (adjust as needed)
         });
     </script>
     <script src="script.js"></script>
