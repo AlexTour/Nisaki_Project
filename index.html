@@ -99,13 +99,6 @@
             // To turn off the Glitch Effect, set its blendMode to 'skip'
             //glitchEffect.blendMode = 'skip';
         });
-
-        // Function to gradually increase audio volume
-        function fadeInAudio(audioElement, duration) {
-          const targetVolume = 1;
-          const initialVolume = 0.4;
-          const volumeIncrement = (targetVolume - initialVolume) / (duration / 1000);
-          audioElement.volume = initialVolume;
       
         // Wait for the model to finish loading
         modelViewer.addEventListener('load', async () => {
