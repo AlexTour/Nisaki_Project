@@ -106,17 +106,6 @@
           const initialVolume = 0.4;
           const volumeIncrement = (targetVolume - initialVolume) / (duration / 1000);
           audioElement.volume = initialVolume;
-
-          const fadeInInterval = setInterval(() => {        
-            if (audioElement.volume + volumeIncrement >= targetVolume) {
-                audioElement.volume = targetVolume;
-                clearInterval(fadeInInterval);
-            }
-            else {             
-              audioElement.volume += volumeIncrement;
-            }
-          }, 100);
-        }
       
         // Wait for the model to finish loading
         modelViewer.addEventListener('load', async () => {
@@ -157,8 +146,7 @@
                 audioPlayerStaticNoise.pause();
             }, 500); // Delay for 1 second (adjust as needed)
             
-            //audioPlayer.play();
-            fadeInAudio(audioPlayer, 6000); // Increase volume over 6 seconds
+            audioPlayer.play();
             modelViewer.setAttribute('auto-rotate', '');
           
             setTimeout(() => {
