@@ -110,10 +110,7 @@
           
           // Start the experience when playButton is Clicked
           playButton.addEventListener('click', () => {
-
-            modelViewer.cameraOrbit = '0deg 75deg 0.3032m';
-            modelViewer.cameraTarget = '0m 0.1m 0m';            
-                     
+                
             playButton.style.display = 'none';
             
             selectiveBloomEffect.addEventListener('updated-selection', () => {
@@ -133,6 +130,9 @@
 
             // Update the material to reflect the changes
             material.needsUpdate = true;
+
+            modelViewer.cameraOrbit = '0deg 75deg 0.3032m';
+            modelViewer.cameraTarget = '0m 0.1m 0m';   
 
             // Turn off static noise and play the song
             setTimeout(() => {
