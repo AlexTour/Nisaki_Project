@@ -70,6 +70,7 @@
       <effect-composer render-mode="quality" msaa="8">
         <glitch-effect blend-mode="skip" id="glitchEffect"></glitch-effect>
         <pixelate-effect blend-mode="skip" id="pixelateEffect"></pixelate-effect>
+        <bloom blend-mode="skip" id="bloomEffect"></bloom-effect>
       </effect-composer>
     </model-viewer>
 
@@ -106,10 +107,13 @@
           // Get the material with index 2
             const material = modelViewer.model.materials[2];
             const texture = await modelViewer.createTexture('USMRV001-Covernew.jpg');
-
+          
+          // Start the experience when playButton is Clicked
           playButton.addEventListener('click', () => {
             playButton.style.display = 'none';
-                  
+
+            bloomEffect.blendMode = 'default';
+      
             // Set the texture on the material
             material.pbrMetallicRoughness["baseColorTexture"].setTexture(texture);
 
