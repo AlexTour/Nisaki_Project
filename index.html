@@ -63,7 +63,7 @@
   </head>
   <body>
     <!-- <model-viewer> HTML element -->
-    <model-viewer id="modelViewer" src="cr-tv-v1.glb" camera-controls poster="poster.webp" shadow-intensity="0" environment-image="eresosPanoramaNEWNEW.png" exposure="1.5" camera-orbit="30deg 70deg 0.2897m" camera-target="0m 0.11m 0.09m" field-of-view="30deg" touch-action="none" interaction-prompt="none" interpolation-decay="500">
+    <model-viewer id="modelViewer" src="cr-tv-v1.glb" camera-controls disable-tap disable-pan poster="poster.webp" shadow-intensity="0" environment-image="eresosPanoramaNEWNEW.png" exposure="1.5" camera-orbit="30deg 70deg 0.2897m" camera-target="0m 0.11m 0.09m" field-of-view="30deg" touch-action="none" interaction-prompt="none" interpolation-decay="500">
       <div class="progress-bar hide" slot="progress-bar">
           <div class="update-bar"></div>
       </div>
@@ -99,8 +99,18 @@
           playButton.style.display = 'block'; 
 
           // Get the material with index 2
-            const material = modelViewer.model.materials[2];
-            const texture = await modelViewer.createTexture('USMRV001-Covernew.jpg');
+          const material = modelViewer.model.materials[2];
+          const texture = await modelViewer.createTexture('USMRV001-Covernew.jpg');
+
+          const changeColor = (event) => {
+            const material = modelViewer.materialFromPoint(event.clientX, event.clientY);
+            if (material != null) {
+              material.pbrMetallicRoughness.
+              setBaseColorFactor([Math.random(), Math.random(), Math.random()]);
+            }
+          };
+
+          modelViewer.addEventListener("click", changeColor);
           
           // Start the experience when playButton is Clicked
           playButton.addEventListener('click', () => {
