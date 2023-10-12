@@ -137,30 +137,29 @@
             // Turn off static noise and play the song
             setTimeout(() => {
                 audioPlayerStaticNoise.pause();
-            }, 500); // Delay for 1 second (adjust as needed)
-            
-            audioPlayer.play();
-            modelViewer.setAttribute('auto-rotate', '');
+            }, 500); // Delay for 1 second (adjust as needed)                    
           
             setTimeout(() => {
+                audioPlayer.play();
+                modelViewer.setAttribute('auto-rotate', '');
                 modelViewer.setAttribute('skybox-image', 'eresosPanoramaNEWNEW.png');
             }, 1500); // Delay for 1 second (adjust as needed)
 
             setTimeout(() => {
                pixelateEffect.blendMode = 'default';
-            }, 3000); // Delay for 1 second (adjust as needed)
+            }, 4000); // Delay for 1 second (adjust as needed)
 
             setTimeout(() => {
                pixelateEffect.blendMode = 'skip';
-            }, 6000); // Delay for 1 second (adjust as needed)
+            }, 8000); // Delay for 1 second (adjust as needed)
 
             setTimeout(() => {
                glitchEffect.blendMode = 'default';
-            }, 10000); // Delay for 1 second (adjust as needed)
+            }, 18000); // Delay for 1 second (adjust as needed)
 
             setTimeout(() => {
                glitchEffect.blendMode = 'skip';
-            }, 20000); // Delay for 1 second (adjust as needed)
+            }, 22000); // Delay for 1 second (adjust as needed)
           });
         });
       
