@@ -92,12 +92,6 @@
         understandButton.addEventListener('click', () => {
             intro.style.display = 'none';            
             audioPlayerStaticNoise.play();
-            
-            const effectsViewer = document.querySelector("model-viewer#effect-composer");
-            //const glitchEffect = effectsViewer.querySelector("#glitch-effect"); 
-            
-            // To turn off the Glitch Effect, set its blendMode to 'skip'
-            //glitchEffect.blendMode = 'skip';
         });
       
         // Wait for the model to finish loading
@@ -124,12 +118,6 @@
               selectiveBloom.selection = selection;
               selectiveBloomEffect.blendMode = 'default';
             });
-      
-            // Set the texture on the material
-            material.pbrMetallicRoughness["baseColorTexture"].setTexture(texture);
-
-            // Update the material to reflect the changes
-            material.needsUpdate = true;
 
             modelViewer.cameraOrbit = '0deg 75deg 0.3032m';
             modelViewer.cameraTarget = '0m 0.1m 0m';   
@@ -137,7 +125,13 @@
             // Turn off static noise and play the song
             setTimeout(() => {
                 audioPlayerStaticNoise.pause();
-            }, 500); // Delay for 1 second (adjust as needed)                    
+            }, 500); // Delay for 1 second (adjust as needed) 
+
+            // Set the texture on the material
+            material.pbrMetallicRoughness["baseColorTexture"].setTexture(texture);
+
+            // Update the material to reflect the changes
+            material.needsUpdate = true;
           
             setTimeout(() => {
                 audioPlayer.play();
