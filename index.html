@@ -86,6 +86,8 @@
     
     <audio id="audioPlayer" src="B2 - AgainstMe -  There is Someone on the Line.mp3" preload="auto"></audio>
     <audio id="audioPlayerStaticNoise" src="tv-static-05.mp3" preload="auto"></audio>  
+
+    <button id="muteButton" style="display: none;">Mute</button>
    
     <script type="module">
         // Hide the intro when the "Understand" button is clicked
@@ -111,6 +113,20 @@
           };
 
           modelViewer.addEventListener("click", changeColor);
+
+          let isMuted = false;
+
+          muteButton.addEventListener('click', () => {
+            if (isMuted) {
+              audioPlayer.muted = false;
+              muteButton.textContent = 'Mute';
+              isMuted = false;
+            } else {
+              audioPlayer.muted = true;
+              muteButton.textContent = 'Unmute';
+              isMuted = true;
+            }
+          });
           
           // Start the experience when playButton is Clicked
           playButton.addEventListener('click', () => {
@@ -145,6 +161,7 @@
           
             setTimeout(() => {
                 audioPlayer.play();
+                muteButton.style.display = 'block'; 
                 modelViewer.setAttribute('auto-rotate', '');
                 modelViewer.setAttribute('skybox-image', 'eresosPanoramaNEWNEW.png');
             }, 1500); // Delay for 1 second (adjust as needed)
