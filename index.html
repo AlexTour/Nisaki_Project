@@ -59,6 +59,27 @@
         #modelViewer[fadeSkybox] {
           animation: fadeSkybox 4s ease-in-out forwards; /* Adjust the duration to 4 seconds */
         }
+
+        #muteButton,
+        #unmuteButton {
+          position: absolute;
+          bottom: 10px;
+          left: 10px;
+          display: none;
+          cursor: pointer;
+          background: #fff;
+          border-radius: 50%;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+          border: none;
+          color: rgba(0, 0, 0, 0.8);
+          font-size: 24px;
+          padding: 5px;
+          z-index: 3;
+        }
+
+        #unmuteButton i {
+        display: none;
+        }
     </style>
   </head>
   <body>
@@ -87,7 +108,15 @@
     <audio id="audioPlayer" src="B2 - AgainstMe -  There is Someone on the Line.mp3" preload="auto"></audio>
     <audio id="audioPlayerStaticNoise" src="tv-static-05.mp3" preload="auto"></audio>  
 
-    <button id="muteButton" style="display: none;">Mute</button>
+    <!-- Mute Button (initially hidden) -->
+    <button id="muteButton" style="display: none;">
+      <img src="volume_mute.png" alt="Mute" width="30" height="30">
+    </button>
+
+    <!-- Unmute Button (initially hidden) -->
+    <button id="unmuteButton" style="display: none;">
+      <img src="volume_up.png" alt="Unmute" width="30" height="30">
+    </button>
    
     <script type="module">
         // Hide the intro when the "Understand" button is clicked
@@ -117,15 +146,15 @@
           let isMuted = false;
 
           muteButton.addEventListener('click', () => {
-            if (isMuted) {
-              audioPlayer.muted = false;
-              muteButton.textContent = 'Mute';
-              isMuted = false;
-            } else {
-              audioPlayer.muted = true;
-              muteButton.textContent = 'Unmute';
-              isMuted = true;
-            }
+            audioPlayer.muted = true;
+            muteButton.style.display = 'none';
+            unmuteButton.style.display = 'block';
+          });
+
+          unmuteButton.addEventListener('click', () => {
+            audioPlayer.muted = false;
+            unmuteButton.style.display = 'none';
+            muteButton.style.display = 'block';
           });
           
           // Start the experience when playButton is Clicked
