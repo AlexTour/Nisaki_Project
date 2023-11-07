@@ -100,13 +100,17 @@
     <div id="intro">
         <h1>Welcome to an immersive multisensory experience</h1>
         <p>Click "Understand" to start the new audio release from AgainstMe -  There is Someone on the Line.</p>
-        <button id="understandButton">Understand</button>
+        <button id="understandButton1">A1 - Mic Meimaroglou - Chata.wav</button>
+        <button id="understandButton2">B1 - Mic Meimaroglou - Spiritus</button>
+        <button id="understandButton3">A2 - AgainstMe - Numinous</button>
+        <button id="understandButton4">B2 - AgainstMe - There is Someone on the Line</button>
     </div>
 
     <!-- Play button -->
     <button id="playButton">Play</button>
     
-    <audio id="audioPlayer" src="B2 - AgainstMe -  There is Someone on the Line.mp3" preload="auto"></audio>
+    <audio id="audioPlayer"></audio>
+    
     <audio id="audioPlayerStaticNoise" src="tv-static-05.mp3" preload="auto"></audio>  
 
     <!-- Mute Button (initially hidden) -->
@@ -121,7 +125,26 @@
    
     <script type="module">
         // Hide the intro when the "Understand" button is clicked
-        understandButton.addEventListener('click', () => {
+        understandButton1.addEventListener('click', () => {
+            audioPlayer.setAttribute("src", "A1 - Mic Meimaroglou - Chata.mp3")
+            intro.style.display = 'none';            
+            audioPlayerStaticNoise.play();
+        });
+
+        understandButton3.addEventListener('click', () => {
+            audioPlayer.setAttribute("src", "B1 - Mic Meimaroglou - Spiritus.mp3")
+            intro.style.display = 'none';            
+            audioPlayerStaticNoise.play();
+        });
+
+        understandButton2.addEventListener('click', () => {
+            audioPlayer.setAttribute("src", "A2 - AgainstMe - Numinous.mp3")
+            intro.style.display = 'none';            
+            audioPlayerStaticNoise.play();
+        });
+
+        understandButton4.addEventListener('click', () => {
+            audioPlayer.setAttribute("src", "B2 - AgainstMe - There is Someone on the Line.mp3")
             intro.style.display = 'none';            
             audioPlayerStaticNoise.play();
         });
